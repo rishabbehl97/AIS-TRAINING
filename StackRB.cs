@@ -79,7 +79,7 @@ namespace AIS.RB
                 }
             }
         }
-        /*
+        
                 public static void Main(String[] args)
                 {
                     char answer = 'Y';
@@ -139,6 +139,6 @@ namespace AIS.RB
 
                 }
             }
-            */
+            
     }
 }
