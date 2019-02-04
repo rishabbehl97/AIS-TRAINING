@@ -37,7 +37,7 @@ namespace AIS.RB
             }
         }
 
-      /*  public static void Main(String[] args)
+       public static void Main(String[] args)
         {
             Console.WriteLine(" Let's perform insertion sort today!!");
             
@@ -62,6 +62,6 @@ namespace AIS.RB
             object_IS.Insert_Sort(elementsUnsorted, Length_unsorted);
             object_IS.DisplayArray(elementsUnsorted, Length_unsorted);
             Console.Read();
-        }*/
+       }
     }
 }
