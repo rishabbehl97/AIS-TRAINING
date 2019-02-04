@@ -43,7 +43,7 @@ namespace AIS.RB
             return (m % n);
         }
 
-        /*   public static void Main(String []args)
+           public static void Main(String []args)
            {
                Calculator c = new Calculator();
                Console.WriteLine("Enter First number");
@@ -87,6 +87,6 @@ namespace AIS.RB
                }
                Console.Read();
            }
-       }*/
+       }
     }
 }
