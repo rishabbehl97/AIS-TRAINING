@@ -1,0 +1,115 @@
+AZURE ASSIGNMENT: [SCRIPTS]
+
+TASK-1
+	Azure RM [Resource Manager] Model Installation:
+	Command:
+	Install-Module -Name AzureRM -RequiredVersion 6.9.0
+
+TASK-2
+	Azure RM [Resource Manager] Model Setup exist and where:
+	Command:
+	C:\WINDOWS\system32> Get-Module AzureRM -List | Select-Object Name, Version, Path 
+
+
+TASK-3
+	Overview of AZURE RESOURCE GROUP CREATION AND ASSIGNING RESOURCES.
+
+
+TASK-4 
+	AZURE RESOURCE CREATION on azure portal.
+
+TASK-5	
+	Creating a VM on Azure portal.
+	VM Credentials:[Assigned roles to pranav as well as contributor on VM machines and reader on resource group]
+	RishabAssignmentVM
+	AISassignment@123
+
+TASK-6
+	INSTALL AZURE POWERSHELL MODULE
+	Command: 
+	Install-Module -Name Az -AllowClobber
+
+TASK-7
+	SIGN IN TO AZURE POWERSHELL MODULE
+	Command:
+	Connect-AzAccount
+
+
+After this step an issue occured :
+
+PS C:\WINDOWS\system32> Enable-AzureRmAlias
+WARNING: Both Az and AzureRM modules were detected on this machine. Az and AzureRM modules cannot be imported in the
+same session or used in the same script or runbook. If you are running PowerShell in an environment you control you can
+use the 'Uninstall-AzureRm' cmdlet to remove all AzureRm modules from your machine. If you are running in Azure
+Automation, take care that none of your runbooks import both Az and AzureRM modules. More information can be found
+here: https://aka.ms/azps-migration-guide
+
+Which was resolved as we have to use one of them at a particular session. So if we want to use the Azure RM we must enable 
+it when we start a new session always.
+
+After that:
+
+TASK-8
+	CREATE THE AZURE RESOURCE GROUP USING RM MODULE
+	Command:
+	New-AzureRmResourceGroup RishabRGAIS "South Central US"
+
+TASK-9
+	CREATE A VM IN POWERSHELL RM
+	Command:
+
+	New-AzureRmVm `
+    	-ResourceGroupName "RishabRGAIS" `
+    	-Name "MyVMAIS" `
+    	-Location "East US" `
+    	-VirtualNetworkName "myVnet" `
+    	-SubnetName "mySubnet" `
+    	-SecurityGroupName "myNetworkSecurityGroup" `
+    	-PublicIpAddressName "myPublicIpAddress" `
+    	-OpenPorts 80,3389
+
+TASK-10
+	CREATE A STORAGE ACCOUNT IN POWERSHELL RM
+	Command:
+
+	New-AzureRmStorageAccount `
+	   -ResourceGroupName RishabRGAIS `
+	   -Name storageAIS `
+	   -Location "West US" `
+	   -SkuName "Standard_LRS" `
+
+TASK-11
+	CREATE A RESOUCE GROUP USING AZURE CLI
+	Command:
+	az group create --name resourceGCLI --location eastus
+
+TASK-12
+	CREATE A VM USING AZURE CLI
+	Command:
+	rishab_behl@Azure:~$ az vm create \
+	> --resource-group resourceGCLI \
+	> --name myVMCLI \
+	> --image win2016datacenter \
+	> --admin-username rishabVMCLI \
+	> --admin-password RishabVMCLI@123
+
+	Output was:
+	Tempelate was displayed as the output:
+	Showing our public, private IP Address, State - Running or paused!
+
+	{
+  	"fqdns": "",
+  	"id": "/subscriptions/ba7c7c57-774e-4aa1-aa8a-8f403608fb84/resourceGroups/resourceGCLI/providers/Microsoft.Compute/virtualMachines/myVMCLI",
+  	"location": "eastus",
+	"macAddress": "00-0D-3A-19-8E-AC",
+	"powerState": "VM running",
+  	"privateIpAddress": "10.0.0.4",
+  	"publicIpAddress": "13.82.101.216",
+  	"resourceGroup": "resourceGCLI",
+  	"zones": ""
+	}
+
+TASK-13
+	CREATE A STOARGE ACCOUNT USING Azure CLI
+	Command:
+	rishab_behl@Azure:~$ az storage account create -n storageacccli -g resourceGCLI -l westus --sku Standard_LRS
