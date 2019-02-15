@@ -82,7 +82,7 @@ namespace AIS.RB
         }
 
 
-            /*     public static void Main(string[] args)
+          public static void Main(string[] args)
                  {
                      BFS_RB tree = new BFS_RB();
 
@@ -100,7 +100,7 @@ namespace AIS.RB
 
                      Console.Read();
                  }
-             */
+             
              
     }
 }
